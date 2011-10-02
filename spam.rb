@@ -4,6 +4,7 @@ require 'net/https'
 require 'twitter'
 require './auth.rb'
 require './env.rb'
+require './message.rb'
 
 dict = {}
 sends = []
@@ -14,10 +15,6 @@ usersf = File.open("users", "a+").each do |line|
 	sends << particip.first if particip.last == "new"
 end
 usersf.truncate(0)
-
-def message(user)
-	"Hi #{user}!"
-end
 
 sends.each do |user|
 	Twitter.update(message(user)) if $ENV == 'production'
