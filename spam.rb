@@ -21,7 +21,7 @@ sends.each do |user|
 	puts message(user) if $ENV == 'test'
 	dict[user] = "messaged-#{Time.now.to_s.split.join("/")}"
 	usersf.puts("#{user} #{dict[user]}")
-	sleep 20*60 + (rand(20) - 5)*20 if $ENV == 'production' #wait 15-30 minutes before sending next one
+	sleep (5 + rand(10))*60 if $ENV == 'production' #wait 5-15 minutes before sending next one
 end
 
 usersf.close
