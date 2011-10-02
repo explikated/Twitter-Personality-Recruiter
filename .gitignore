@@ -1,3 +1,4 @@
 *.swp
 user_data/
 users
+auth.rb
