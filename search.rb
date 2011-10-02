@@ -29,6 +29,7 @@ result.each do |tweet|
 		opt = {}
 		opt["count"] = 25
 		res = stream.user_timeline(tweet.from_user, opt)
+		Dir.mkdir("user_data") unless Dir.exists?("user_data")
 		streamf = File.new("user_data/"+tweet.from_user,"w")
 		res.each do |old_tweet|
 			line = old_tweet.text + "\n"
