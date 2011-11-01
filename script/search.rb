@@ -19,23 +19,24 @@ usersf= File.open("users", "a+").each { |line|
 
 
 search = Twitter::Search.new
-search_terms = ["#hipster"] 
+search_terms = ["#latfh"] 
 result = search.lang('en').geocode(41,-74,"250mi").containing(search_terms.join(" OR "))
 result.each do |tweet|
 	if dict.has_key?(tweet.from_user) == false
-		puts "FOUND ONE!"
 		#Check activity restraints
 		stream = Twitter::Client.new
 		opt = {}
-		opt["count"] = 25
+		opt["count"] = 10
 		res = stream.user_timeline(tweet.from_user, opt)
-		Dir.mkdir("user_data") unless Dir.exists?("user_data")
-		streamf = File.new("user_data/"+tweet.from_user,"w")
-		res.each do |old_tweet|
-			line = old_tweet.text + "\n"
-			streamf.write(line)
-		end
-		streamf.close
+		puts tweet.from_user
+		puts res.last.created_at
+		#Dir.mkdir("user_data") unless Dir.exists?("user_data")
+		#streamf = File.new("user_data/"+tweet.from_user,"w")
+		#res.each do |old_tweet|
+			#line = old_tweet.text + "\n"
+			#streamf.write(line)
+		#end
+		#streamf.close
 		#Add to dictionary
 		dict[tweet.from_user] = "new"
 		usersf.write(tweet.from_user + " new\n")
