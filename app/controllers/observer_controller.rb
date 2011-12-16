@@ -1,0 +1,3 @@
+class ObserverController < ApplicationController
+
+end
