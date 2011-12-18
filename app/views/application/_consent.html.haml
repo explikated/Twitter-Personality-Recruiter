@@ -1,0 +1,5 @@
+= form.fields_for :consent_attributes do |consent_f|
+  = consent_f.input :consent, :as => :radio
+  = consent_f.input :over_18, :as => :radio
+  = consent_f.input :signature
+

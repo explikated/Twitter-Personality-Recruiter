@@ -1,4 +1,4 @@
-class InformantController < ApplicationController
+class InformantsController < ApplicationController
   respond_to :html
 
   def new

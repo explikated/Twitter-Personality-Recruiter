@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216192449) do
+ActiveRecord::Schema.define(:version => 20111218024850) do
 
   create_table "consents", :force => true do |t|
     t.boolean  "consent"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20111216192449) do
     t.integer  "age"
     t.string   "race"
     t.string   "ethnicity"
+    t.string   "education"
     t.string   "twitter_use"
     t.text     "why_twitter"
     t.text     "twitter_story"
@@ -37,12 +38,14 @@ ActiveRecord::Schema.define(:version => 20111216192449) do
   end
 
   create_table "demographics_other_sites", :id => false, :force => true do |t|
-    t.integer "demographics_id"
+    t.integer "demographic_id"
     t.integer "other_site_id"
   end
 
   create_table "informants", :force => true do |t|
     t.integer  "participant_id"
+    t.string   "name"
+    t.string   "email"
     t.integer  "consent_id"
     t.integer  "ten_items_id"
     t.integer  "participant_ten_items_id"
@@ -52,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20111216192449) do
 
   create_table "observers", :force => true do |t|
     t.integer  "participant_id"
+    t.string   "name"
+    t.string   "email"
     t.integer  "consent_id"
     t.integer  "ten_items_id"
     t.integer  "participant_ten_items_id"

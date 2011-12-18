@@ -19,3 +19,5 @@ user_data/
 users
 auth.rb
 test/
+config/initializers/setup_mail.rb
+

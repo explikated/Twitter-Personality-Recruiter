@@ -7,6 +7,7 @@ class CreateDemographics < ActiveRecord::Migration
       t.integer :age
       t.string :race
       t.string :ethnicity
+      t.string :education
       t.string :twitter_use
       t.text :why_twitter
       t.text :twitter_story

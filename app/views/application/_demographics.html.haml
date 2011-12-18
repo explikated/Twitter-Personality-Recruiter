@@ -1,0 +1,19 @@
+= form.fields_for :demographic_attributes do |demographic_f|
+  = demographic_f.input :gender, :required => false, :as => :radio, :collection => ["Male", "Female"]
+  = demographic_f.input :age, :required => false
+  = demographic_f.input :race, :required => false do
+    - ["African American", "Arab American", "Asian American", "Caucasion/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
+      %span
+        = radio_button_tag "participant[demographic_attributes][race]", race
+        = label_tag "participant_demographic_attributes_race_#{race.gsub(" ","_")}", race
+    %span#custom-race
+      = radio_button_tag "participant[demographic_attributes][race]", "custom"
+      = label_tag "participant_demographic_attributes_race", "Best Described As:"
+      = text_field_tag "custom_race"
+  = demographic_f.input :education, :required => false, :as => :radio,
+    :collection => ["High school degree/GED", "Some college", "College degree", "Advanced degree"]
+  = demographic_f.input :twitter_use, :required => false, :as => :radio,
+    :collection => ["Many times a day", "Once a day", "Several times a week", "Several times a month", "Once a month or less", "I have never used Twitter"]
+  = demographic_f.collection_check_boxes :other_site_ids, OtherSite.all.map {|s| [s.id, s.site]}, :first, :last, :required => false
+  = demographic_f.input :why_twitter, :required => false, :as => :text
+  = demographic_f.input :twitter_story, :required => false, :as => :text

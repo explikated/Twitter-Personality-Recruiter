@@ -1,4 +1,4 @@
-class ObserverController < ApplicationController
+class ObserversController < ApplicationController
   respond_to :html
 
   def new
