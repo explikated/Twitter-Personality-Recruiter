@@ -2,7 +2,7 @@ require 'rubygems'
 require 'net/http'
 require 'net/https'
 require 'twitter'
-#require './auth.rb'
+require './auth.rb'
 require './env.rb'
 require './message.rb'
 

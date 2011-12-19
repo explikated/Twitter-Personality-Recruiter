@@ -17,7 +17,6 @@ usersf= File.open("users", "a+").each { |line|
 	end
 	#User dictionary now includes all existing participants
 }
-userlookup = dict.invert
 
 id_counterf = File.open("id counter", "r")
 id_counters = id_counterf.readline
@@ -26,10 +25,11 @@ id_counterf.close
 puts id_counter
 
 search = Twitter::Search.new
-search_terms = ["me"] 
+search_terms = ["#olinexpo"] 
 result = search.lang('en').geocode(41,-74,"250mi").containing(search_terms.join(" OR "))
 result.each do |tweet|
-	if userlookup.has_key?(tweet.from_user) == false
+	#if userlookup.has_key?(tweet.from_user) == false
+	if dict.key(tweet.from_user) == nil
 		#Check activity restraints
 		stream = Twitter::Client.new
 		opt = {}
