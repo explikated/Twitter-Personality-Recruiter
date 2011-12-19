@@ -11,4 +11,5 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
-gem 'pg'
+#gem 'pg'
+gem 'sqlite3'
