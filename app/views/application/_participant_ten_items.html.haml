@@ -1,0 +1,25 @@
+= form.fields_for :participant_ten_item_attributes do |ten_item_f|
+  %p.italic
+    Please answer the following questions
+    %span.underline about the personality of the person who referred you to this study.
+  %h1 Ten-Item Personality Inventory
+  %p
+    Here are a number of personality traits that may or may not apply to the person who referred you
+    to this study. Please write a number next to each statement to indicate the extent to which
+    %span.underline
+      you agree or disagree that the statement describes the person who referred you to this study.
+  %p
+    You should rate the extent to which the pair of traits applies to that person,
+    even if one characteristic applies more strongly than the other.
+  %ol
+    %li Disagree strongly
+    %li Disagree moderately
+    %li Disagree a little
+    %li Neither agree nor disagree
+    %li Agree a little
+    %li Agree moderately
+    %li Agree strongly
+
+  %p.italic
+    I see the person who referred me to this study as:
+  = render 'ten_item_questions', :ten_item_f => ten_item_f

@@ -1,0 +1,5 @@
+%h1 This is content!
+
+= simple_form_for Participant.new(:handle => @handle) do |f|
+  = f.hidden_field :handle
+  = f.submit "Next"
