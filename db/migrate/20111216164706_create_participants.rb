@@ -4,8 +4,6 @@ class CreateParticipants < ActiveRecord::Migration
       t.string :handle
       t.string :name
       t.string :email
-      t.integer :consent_id
-      t.integer :ten_items_id
 
       t.timestamps
     end

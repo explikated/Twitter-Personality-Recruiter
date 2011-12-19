@@ -2,7 +2,14 @@ class ParticipantsController < ApplicationController
   respond_to :html
 
   def new
-    @participant = Participant.create(:handle => params[:handle])
+    @handle = params["handle"]
+    participant = Participant.find_by_handle(@handle)
+    redirect_to edit_participant_path(participant) unless participant.nil?
+  end
+
+  def create
+    @participant = Participant.create(params["participant"])
+    respond_with @participant, :location => edit_participant_path(@participant)
   end
 
   def edit

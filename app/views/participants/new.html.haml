@@ -1,3 +1,5 @@
 %h1 This is content!
 
-= link_to "Next", edit_participant_path(@participant)
+= simple_form_for Participant.new(:handle => @handle) do |f|
+  = f.hidden_field :handle
+  = f.submit "Next"

@@ -4,6 +4,6 @@ ActionMailer::Base.smtp_settings = {
   :domain               => "asciicasts.com",  
   :user_name            => "asciicasts",  
   :password             => "secret",  
-  :authentication       => "plain",  
+  :authentication       => :login,  
   :enable_starttls_auto => true  
 }  

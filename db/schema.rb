@@ -46,20 +46,13 @@ ActiveRecord::Schema.define(:version => 20111218024850) do
     t.integer  "participant_id"
     t.string   "name"
     t.string   "email"
-    t.integer  "consent_id"
-    t.integer  "ten_items_id"
-    t.integer  "participant_ten_items_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "observers", :force => true do |t|
-    t.integer  "participant_id"
     t.string   "name"
     t.string   "email"
-    t.integer  "consent_id"
-    t.integer  "ten_items_id"
-    t.integer  "participant_ten_items_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,8 +85,6 @@ ActiveRecord::Schema.define(:version => 20111218024850) do
     t.string   "handle"
     t.string   "name"
     t.string   "email"
-    t.integer  "consent_id"
-    t.integer  "ten_items_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

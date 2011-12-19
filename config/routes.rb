@@ -1,8 +1,11 @@
 TwitterPersonalityRecruiter::Application.routes.draw do
-  match '/participants/new/:handle' => "participants#new"
-  resources :participants, :except => [:destroy, :new, :create] do
-    resources :informants, :except => [:create, :destroy]
-    resources :observers, :except => [:create, :destroy]
+  match '/new_participant/:handle' => "participants#new"
+  resources :participants, :only => [:new, :create, :edit, :update] do
+    resources :informants, :only => [:show, :edit, :update]
+  end
+  
+  resources :observers, :except => [:destroy] do
+    resources :participant_ten_items, :only => [:new, :create]
   end
 
   get "thank_you/index"

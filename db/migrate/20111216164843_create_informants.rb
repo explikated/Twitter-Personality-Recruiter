@@ -4,9 +4,6 @@ class CreateInformants < ActiveRecord::Migration
       t.integer :participant_id
       t.string :name
       t.string :email
-      t.integer :consent_id
-      t.integer :ten_items_id
-      t.integer :participant_ten_items_id
 
       t.timestamps
     end
