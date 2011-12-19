@@ -1,2 +1,2 @@
-$ENV = 'test'
-# $ENV = 'production'
+#$ENV = 'test'
+$ENV = 'production'
