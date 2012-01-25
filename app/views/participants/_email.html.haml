@@ -1,7 +1,11 @@
-= form.input :name, :required => false
-= form.input :email, :required => false
-
+%p In order to form a base line evaluation of your personality, we need an assessment of your personality from your close friends. Please provide up to three close aquaintaces that might be willing to participate in a less-than 10 minute survey about your personality. 
 = label_tag "informant_emails", "Tell us your friends' emails:"
 = text_field_tag "informant_email_1"
 = text_field_tag "informant_email_2"
 = text_field_tag "informant_email_3"
+%p
+%p When contacting your identified close acquaintances, we need to identify who you are. Please provide your name in a way that they would recognize.
+= form.input :name, :required => false
+%p If you would like to be cc'd on the email sent to the acquaintances you've identified, please provide your email address. Email address will also be used to contact the winners of the Amazon gift card drawing at the end of the study.
+= form.input :email, :required => false
+

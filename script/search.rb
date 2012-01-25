@@ -4,6 +4,7 @@ require 'net/https'
 require 'twitter'
 require './criteria'
 
+#TODO write to log file search started
 dict = {}
 
 statusf= File.open("status", "a+")
@@ -48,6 +49,7 @@ result.each do |tweet|
 				line = old_tweet.text + "\n-----------------\n"
 				streamf.write(line)
 			end
+			#TODO identified particip ID
 			streamf.close
 			id_counter += 1
 		end
@@ -62,3 +64,4 @@ id_counterff.write(id_counter.to_s)
 id_counterff.close
 usersf.close
 statusf.close
+#TODO write to log file search complete

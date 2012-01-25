@@ -1,4 +1,5 @@
 def message(user)
+	#adding a really useful comment
 	n = Random.rand(3)
 	puts n
 	#Random number generator

@@ -6,6 +6,7 @@ require './auth.rb'
 require './env.rb'
 require './message.rb'
 
+#TODO write to log started messaging
 user_dict = {}
 status_dict = {}
 
@@ -28,6 +29,7 @@ sends.each do |id|
 	Twitter.update(message(user)) if $ENV == 'production'
 	puts message(user) if $ENV == 'test'
 	status_dict[id] = "messaged-#{Time.now.to_s.split.join("/")}"
+	#TODO log user messaged
 	sleep (5 + rand(10))*60 if $ENV == 'production' #wait 5-15 minutes before sending next one
 end
 
@@ -36,3 +38,4 @@ status_dict.each {|key, value| statusf.write("#{key} #{value}\n")}
 
 statusf.close
 usersf.close
+#TODO log messaging complete
