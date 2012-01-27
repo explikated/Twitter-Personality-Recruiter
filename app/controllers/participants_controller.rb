@@ -29,6 +29,15 @@ class ParticipantsController < ApplicationController
     @participant.update_attributes(params["participant"])
 
     create_informants(params) if params["participant"]["email"]
+    if params["participant"]
+	if params["participant"]["consent_attributes"]
+            if params["participant"]["consent_attributes"]["consent"]
+		if params["participant"]["consent_attributes"]["consent"] == false
+		    redirect_to thank_you_anyways_path
+		end
+            end
+	end
+    end
 #   email_informants(@participant) if @participant.done?
 
     destination = edit_participant_path(@participant)
