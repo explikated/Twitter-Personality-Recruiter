@@ -5,10 +5,10 @@ class AddOtherSiteData < ActiveRecord::Migration
                       {:site => "MySpace"},
                       {:site => "Linkedin"},
                       {:site => "Flickr"},
-                      {:site => "Tumblr/Blogspt/Other Blogging Platform"},
+                      {:site => "Blogging Platform"},
                       {:site => "Google Plus"},
                       {:site => "FourSquare"},
-                      {:site => "I have my own website (non-blog)"},
+                      {:site => "I have my own website"},
                      ])
   end
 
