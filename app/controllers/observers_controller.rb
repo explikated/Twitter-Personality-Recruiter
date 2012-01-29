@@ -15,8 +15,7 @@ class ObserversController < ApplicationController
     
     @partial = "consent"
     if @observer.consent.present? && @observer.consented?
-      @partial = "email"
-      @partial = "survey" if @observer.email?
+      @partial = "survey"
       @partial = "demographics" if @observer.ten_item_present?
     end
     redirect_to observer_path(@observer) if @observer.done?
@@ -26,9 +25,13 @@ class ObserversController < ApplicationController
     @observer = Observer.find(params["id"])
     @observer.update_attributes(params["observer"])
 
-    destination = edit_observer_path(@observer)
-    destination = observer_path(@observer) if @observer.done?
-    respond_with @observer, :location => destination
+    if @observer.consent.present && not @observer.consent.consent
+      redirect_to thank_you_anyways_path
+    else
+      destination = edit_observer_path(@observer)
+      destination = observer_path(@observer) if @observer.done?
+      respond_with @observer, :location => destination
+    end
   end
 
   def show

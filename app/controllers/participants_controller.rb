@@ -18,8 +18,7 @@ class ParticipantsController < ApplicationController
 
     @partial = "consent"
     if @participant.consent.present? && @participant.consented?
-      @partial = "email"
-      @partial = "survey" if @participant.email?
+      @partial = "survey"
       @partial = "demographics" if @participant.ten_item_present?
     end
   end
@@ -29,20 +28,14 @@ class ParticipantsController < ApplicationController
     @participant.update_attributes(params["participant"])
 
     create_informants(params) if params["participant"]["email"]
-    if params["participant"]
-	if params["participant"]["consent_attributes"]
-            if params["participant"]["consent_attributes"]["consent"]
-		if params["participant"]["consent_attributes"]["consent"] == false
-		    redirect_to thank_you_anyways_path
-		end
-            end
-	end
+    if @participant.consent.present? and not @participant.consent.consent
+      redirect_to thank_you_anyways_path
+    else
+  #   email_informants(@participant) if @participant.done?
+      destination = edit_participant_path(@participant)
+      destination = thank_you_index_path if @participant.done?
+      respond_with @participant, :location => destination
     end
-#   email_informants(@participant) if @participant.done?
-
-    destination = edit_participant_path(@participant)
-    destination = thank_you_index_path if @participant.done?
-    respond_with @participant, :location => destination
   end
 
   private

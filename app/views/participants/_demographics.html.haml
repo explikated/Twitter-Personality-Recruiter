@@ -1,0 +1,51 @@
+%h1 Demographic Information
+%p Reminder: You may skip any item you are uncomfortable answering.
+= form.fields_for :demographic_attributes do |demographic_f|
+  = demographic_f.input :gender,
+    :required => false,
+    :as => :radio,
+    :collection => ["Male", "Female", "Transgender", "Prefer not to say"],
+    :label => "My gender is:"
+  %p
+  = demographic_f.input :age, :required => false, :label => "My age today is:"
+  %p
+  = demographic_f.input :race, :required => false, :label => "My racial background is:<br/>" do
+    - ["African American", "Arab American", "Asian American", "Caucasion/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
+      %span
+        = radio_button_tag "participant[demographic_attributes][race]", race
+        = label_tag "participant_demographic_attributes_race_#{race.gsub(" ","_")}", race
+    %span#custom-race
+      = radio_button_tag "participant[demographic_attributes][race]", "custom"
+      = label_tag "participant_demographic_attributes_race", "Best Described As:"
+      = text_field_tag "custom_race"
+  %p
+  = demographic_f.input :education, :required => false, :as => :radio,
+    :label => "My level of education is:", 
+    :collection => ["High school degree/GED", "Some college", "College degree", "Advanced degree"]
+  %p
+  = demographic_f.input :twitter_use, :required => false, :as => :radio,
+    :label => "I would estimate that I use Twitter:", 
+    :collection => ["Many times a day", "Once a day", "Several times a week", "Several times a month", "Once a month or less", "I have never used Twitter"]
+  %p
+  = demographic_f.label :other_site_ids, "In addition to Twitter, I also use the following other internet sites:", :required => false
+  %p
+  = demographic_f.collection_check_boxes :other_site_ids, OtherSite.all.map {|s| [s.id, s.site]}, :first, :last, :required => false
+  %p
+  = demographic_f.input :why_twitter, :required => false, :as => :text,
+    :class => "test",
+    :label => "Please write 1-2 paragraphs answering the question: Why do you use Twitter? If you do not use Twitter, please explain why you don't. <br/>"
+  %p
+  = demographic_f.input :twitter_story, :required => false, :as => :text,
+    :label => "If you use Twitter, in 2-3 paragraphs, please write a true story about a time you used Twitter. This could be a story about something unusual that happened or a story that describes a very typical Twitter experience for you. Remember that stories have a beginning, middle, and end, as well as characters (one of the characters in this story should be you). It should also include your thoughts and feelings, as well as any reflections you have about what this story says about you. We are interested in a story about a real experience you had using Twitter. If you do not use Twitter, please note that.<br/>"
+    
+%p In order to form a base line evaluation of your personality, we need an assessment of your personality from your close friends. Please provide up to three close aquaintaces that might be willing to participate in a less-than 10 minute survey about your personality. 
+= label_tag "informant_emails", "Tell us your friends' emails:"
+= text_field_tag "informant_email_1"
+= text_field_tag "informant_email_2"
+= text_field_tag "informant_email_3"
+%p
+%p When contacting your identified close acquaintances, we need to identify who you are. Please provide your name in a way that they would recognize.
+= form.input :name, :label => "Your name:", :required => false
+%p If you would like to be cc'd on the email sent to the acquaintances you've identified, please provide your email address. Email address will also be used to contact the winners of the Amazon gift card drawing at the end of the study.
+= form.input :email, :label => "Your email address:", :required => false
+

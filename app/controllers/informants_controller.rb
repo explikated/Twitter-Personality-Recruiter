@@ -22,8 +22,12 @@ class InformantsController < ApplicationController
     @informant = Informant.find(params["id"])
     @informant.update_attributes(params["informant"])
 
-    destination = edit_participant_informant_path(@informant.participant, @informant)
-    destination = thank_you_index_path if @informant.done?
-    respond_with @informant, :location => destination
+    if @informant.consent.present? && not @informant.consent.consent
+      redirect_to thank_you_anyways_path
+    else
+      destination = edit_participant_informant_path(@informant.participant, @informant)
+      destination = thank_you_index_path if @informant.done?
+      respond_with @informant, :location => destination
+    end
   end
 end
