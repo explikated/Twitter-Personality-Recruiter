@@ -28,7 +28,7 @@ class ParticipantsController < ApplicationController
     @participant.update_attributes(params["participant"])
 
     create_informants(params) if params["participant"]["email"]
-    if @participant.consent.present? and not @participant.consent.consent
+    if @participant.consent.present? and not @participant.consent.consent or not @participant.consent.over_18
       redirect_to thank_you_anyways_path
     else
   #   email_informants(@participant) if @participant.done?

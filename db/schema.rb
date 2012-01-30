@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218024850) do
+ActiveRecord::Schema.define(:version => 20120129235650) do
 
   create_table "consents", :force => true do |t|
     t.boolean  "consent"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20111218024850) do
     t.integer  "conventional"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "visited"
   end
 
 end
