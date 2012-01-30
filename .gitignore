@@ -13,11 +13,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
-*.swp
-user_data/
-users
-auth.rb
-test/
-config/initializers/setup_mail.rb
-
+/script/auth.rb
+*~
