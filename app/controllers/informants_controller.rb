@@ -22,7 +22,7 @@ class InformantsController < ApplicationController
     @informant = Informant.find(params["id"])
     @informant.update_attributes(params["informant"])
 
-    if @informant.consent.present? && not @informant.consent.consent or not @informant.consent.over_18
+    if @informant.consent.present? and not @informant.consent.consent or not @informant.consent.over_18
       redirect_to thank_you_anyways_path
     else
       destination = edit_participant_informant_path(@informant.participant, @informant)
