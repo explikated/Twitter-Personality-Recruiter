@@ -11,5 +11,5 @@ TwitterPersonalityRecruiter::Application.routes.draw do
   get "thank_you/index"
   get "thank_you/anyways"
 
-	root :to => "thank_you#index"
+	root :to => "thank_you#anyways"
 end
