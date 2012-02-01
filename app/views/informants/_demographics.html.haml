@@ -1,5 +1,5 @@
 %h1 Demographic Information: Step 3 of 3
-%p Reminder: You may skip any item you are uncomfortable answering.
+%p <i>Reminder: You may skip any item you are uncomfortable answering.</i>
 = form.fields_for :demographic_attributes do |demographic_f|
   = demographic_f.input :gender,
     :required => false,
@@ -9,7 +9,7 @@
   = demographic_f.input :age, :required => false, :label => "My age today is:"
   = demographic_f.input :race, :required => false, :label => "My racial background is:<br/>" do
     - ["African American", "Arab American", "Asian American", "Caucasion/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
-      %span
+      %span.newlines
         = radio_button_tag "participant[demographic_attributes][race]", race
         = label_tag "participant_demographic_attributes_race_#{race.gsub(" ","_")}", race
     %span#custom-race
@@ -22,10 +22,9 @@
   = demographic_f.input :twitter_use, :required => false, :as => :radio,
     :label => "I would estimate that I use Twitter:", 
     :collection => ["Many times a day", "Once a day", "Several times a week", "Several times a month", "Once a month or less", "I have never used Twitter"]
-  = demographic_f.label :other_site_ids, "In addition to Twitter, I also use the following other internet sites:", :required => false
-  %p
-  = demographic_f.collection_check_boxes :other_site_ids, OtherSite.all.map {|s| [s.id, s.site]}, :first, :last, :required => false
-  %p
+  %div#sites
+    = demographic_f.label :other_site_ids, "In addition to Twitter, I also use the following other internet sites:", :required => false
+    = demographic_f.collection_check_boxes :other_site_ids, OtherSite.all.map {|s| [s.id, s.site]}, :first, :last, :required => false
   = demographic_f.input :why_twitter, :required => false, :as => :text,
     :label => "Please write 1-2 paragraphs answering the question: Why do you use Twitter? If you do not use Twitter, please explain why you don't. <br/>"
   = demographic_f.input :twitter_story, :required => false, :as => :text,

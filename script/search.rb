@@ -24,8 +24,20 @@ id_counter = Integer(id_counters)
 id_counterf.close
 
 search = Twitter::Search.new
-search_terms = ["I", "me", "my", "myself"] 
-result = search.lang('en').geocode(41,-74,"250mi").containing(search_terms.join(" OR "))
+search_terms = ["I", "me", "my", "myself"]
+loc = Random.rand(3) 
+
+if loc == 0
+	#East - Virginia Beach, VA
+	result = search.lang('en').geocode(36.8506,-75.9779,"450mi").containing(search_terms.join(" OR "))
+elsif loc == 1
+	#Midwest - Red Cloud, NE
+	result = search.lang('en').geocode(40.0518,-98.3122,"700mi").containing(search_terms.join(" OR "))
+elsif loc == 2
+	#West - Fortuna, CA
+	result = search.lang('en').geocode(40.3553,-124.0926,"600mi").containing(search_terms.join(" OR "))
+end
+
 result.each do |tweet|
 	#if userlookup.has_key?(tweet.from_user) == false
 	if dict.key(tweet.from_user) == nil

@@ -6,10 +6,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="center">
+<body>
 
-<%= yield %>
-
+<div>
+<%= image_tag(:"olin.jpg", :alt => "olin logo" )%>
 </div>
+
+<div class="center">
+<%= yield %>
+</div>
+
 </body>
 </html>

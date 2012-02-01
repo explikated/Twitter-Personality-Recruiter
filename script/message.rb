@@ -1,7 +1,9 @@
 def message(user)
 	#adding a really useful comment
 	n = Random.rand(3)
-	puts n
+	doc = n.to_s + " " + user + "\n"
+	File.open("user messages.txt", 'a') {|f| f.write(doc) }
+
 	#Random number generator
 	if n == 0
 		"@"+"#{user} Researchers at Olin College are studying personality on Twitter and we'd like your help. To learn more visit " + study_url(user)

@@ -25,7 +25,7 @@ class ObserversController < ApplicationController
     @observer = Observer.find(params["id"])
     @observer.update_attributes(params["observer"])
 
-    if @observer.consent.present and not @observer.consent.consent or not @observer.consent.over_18
+    if @observer.consent.present and (not @observer.consent.consent or not @observer.consent.over_18)
       redirect_to thank_you_anyways_path
     else
       destination = edit_observer_path(@observer)

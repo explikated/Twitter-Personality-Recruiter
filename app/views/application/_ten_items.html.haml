@@ -1,10 +1,15 @@
 = form.fields_for :ten_item_attributes do |ten_item_f|
- %h1 Personality Assessment: Step 1 of 2
- %p.italic Reminder: You may skip any item you are uncomfortable answering.
-
  %strong Ten-Item Personality Inventory
- %p Here are a number of personality traits that may or may not apply to you. Please write a number next to each statement to indicate the extent to which you agree or disagree with that statement.
+ %p Here are a number of personality traits that may or may not apply to you. Please select a number for each statement, indicating the extent to which you agree or disagree with that statement.
  %p You should rate the extent to which the pair of traits applies to you even if one characteristic applies more strongly than the other.
+ %div.tipi 
+  %span.small 1. Disagree strongly   
+  %span.small 2. Disagree moderately   
+  %span.small 3. Disagree a little   
+  %span.small 4. Neither agree nor disagree    
+  %span.small 5. Agree a little   
+  %span.small 6. Agree moderately   
+  %span.small 7. Agree strongly 
  %ol
   %li Disagree strongly
   %li Disagree moderately
@@ -14,6 +19,6 @@
   %li Agree moderately
   %li Agree strongly
 
-  %p.italic I see myself as:
-  = ten_item_f.input :visited, :as => :hidden, :value => true
-  = render 'ten_item_questions', :ten_item_f => ten_item_f
+ %p.italic In general, I see myself as:
+ = ten_item_f.input :visited, :as => :hidden, :value => true
+ = render 'ten_item_questions', :ten_item_f => ten_item_f
