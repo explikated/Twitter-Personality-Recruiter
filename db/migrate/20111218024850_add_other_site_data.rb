@@ -8,7 +8,7 @@ class AddOtherSiteData < ActiveRecord::Migration
                       {:site => "Blogging Platform"},
                       {:site => "Google Plus"},
                       {:site => "FourSquare"},
-                      {:site => "I have my own website"},
+                      {:site => "I have my own website"}
                      ])
   end
 

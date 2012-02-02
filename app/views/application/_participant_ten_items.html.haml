@@ -1,16 +1,8 @@
 = form.fields_for :participant_ten_item_attributes do |ten_item_f|
   %h1 Ten-Item Personality Inventory: Step 1 of 3
-  %p Please answer the following questions <b>about the personality of the person who referred you to this study</b>.
+  %p Please answer the following questions <b>ABOUT THE PERSONALITY OF THE PERSON WHO REFERRED YOU TO THIS STUDY</b>.
   %p Here are a number of personality traits that may or may not apply to the person who referred you to this study. Please select a number for each statement, indicating the extent to which you agree or disagree that the statement describes the person who referred you to this study.
   %p You should rate the extent to which the <b>pair</b> of traits applies to that person, even if one characteristic applies more strongly than the other.
-  %ol
-    %li Disagree strongly
-    %li Disagree moderately
-    %li Disagree a little
-    %li Neither agree nor disagree
-    %li Agree a little
-    %li Agree moderately
-    %li Agree strongly
-
-  %p In general, I see the person who referred me to this study as:
+  = image_tag(:"tipi-scale.png", :alt => "From Disagree strongly (1) to Agree strongly (7)" )
+  %p In general, I see <b>THE PERSON WHO REFERRED ME TO THIS STUDY</b> as:
   = render 'ten_item_questions', :ten_item_f => ten_item_f
