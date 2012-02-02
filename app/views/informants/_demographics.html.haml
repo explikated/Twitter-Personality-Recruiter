@@ -8,7 +8,7 @@
     :label => "My gender is:"
   = demographic_f.input :age, :required => false, :label => "My age today is (in years):"
   = demographic_f.input :race, :required => false, :label => "My racial background is:<br/>" do
-    - ["African American", "Arab American", "Asian American", "Caucasion/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
+    - ["African American", "Arab American", "Asian American", "Caucasian/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
       %span.newlines
         = radio_button_tag "participant[demographic_attributes][race]", race
         = label_tag "participant_demographic_attributes_race_#{race.gsub(" ","_")}", race

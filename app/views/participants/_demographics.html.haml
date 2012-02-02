@@ -8,7 +8,7 @@
     :label => "My gender is:"
   = demographic_f.input :age, :required => false, :label => "My age today is (in years):"
   = demographic_f.input :race, :required => false, :label => "My racial background is:<br/>" do
-    - ["African American", "Arab American", "Asian American", "Caucasion/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
+    - ["African American", "Arab American", "Asian American", "Caucasian/White", "Hispanic/Latino", "Native American", "Multi-racial"].each do |race|
       %span.newlines
         = radio_button_tag "participant[demographic_attributes][race]", race
         = label_tag "participant_demographic_attributes_race_#{race.gsub(" ","_")}", race
@@ -31,11 +31,11 @@
     :label => "If you use Twitter, in 2-3 paragraphs, please write a true story about a time you used Twitter. This could be a story about something unusual that happened or a story that describes a very typical Twitter experience for you. Remember that stories have a beginning, middle, and end, as well as characters (one of the characters in this story should be you). It should also include your thoughts and feelings, as well as any reflections you have about what this story says about you. We are interested in a story about a real experience you had using Twitter. If you do not use Twitter, please note that.<br/>"
     
 %p In this study we are interested in whether people who do not know you but who read your tweets can assess your personality as accurately as people who know you well in person. Please provide the email addresses of up to three people who know you well (ideally close friends or family) that might be willing to participate in a less-than-10 minute survey about your personality.
-= label_tag "informant_emails", "Close aquaintance email adresses:"
+= label_tag "informant_emails", "Close acquaintance email addresses:", :class => "email"
 = text_field_tag "informant_email_1"
 = text_field_tag "informant_email_2"
 = text_field_tag "informant_email_3"
-%p When contactig these identified close friends or family members, we need to let them know how we got their email adress. Please provide your name in a way they would recognize.
+%p When contacting these identified close friends or family members, we need to let them know where we got their email addresses. Please provide your name. It will not be connected to your data in any way.
 = form.input :name, :label => "Your name:", :required => false
 %p If you would like to be cc'd on the email sent to the acquaintances you've identified, please provide your email address. Email address will also be used to contact the winners of the Amazon gift card drawing at the end of the study.
 = form.input :email, :label => "Your email address:", :required => false
