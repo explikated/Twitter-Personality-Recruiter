@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129235650) do
+ActiveRecord::Schema.define(:version => 20120206181008) do
 
   create_table "consents", :force => true do |t|
     t.boolean  "consent"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(:version => 20120129235650) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "participant_knew_you"
+    t.integer  "you_knew_participant"
+    t.string   "relationship_from_participant"
+    t.string   "relationship_to_participant"
   end
 
   create_table "observers", :force => true do |t|

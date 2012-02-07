@@ -41,10 +41,19 @@ class ParticipantsController < ApplicationController
   private
 
   def create_informants(params)
-    informant_emails = [params["informant_email_1"], params["informant_email_2"], params["informant_email_3"]].reject {|e| e.empty?}
-    unless informant_emails.empty?
-      informant_emails.each do |email|
-        informant = Informant.create(:email => email, :participant_id => params["id"])
+    informant_data = [
+			{:email => params["informant_1_email"], :relationship => params["informant_1_relationship"], :length => params["informant_1_length"]},
+			{:email => params["informant_2_email"], :relationship => params["informant_2_relationship"], :length => params["informant_2_length"]},
+			{:email => params["informant_3_email"], :relationship => params["informant_3_relationship"], :length => params["informant_3_length"]},
+			].reject {|i| i[:email].empty?}
+    unless informant_data.empty?
+      informant_data.each do |i|
+	informant_params = {
+			:email => i[:email],
+			:participant_knew_you => i[:length],
+			:relationship_from_participant => i[:relationship],
+			:participant_id => params["id"] }
+        informant = Informant.create(informant_params)
       end
     end
   end

@@ -1,0 +1,8 @@
+= form.fields_for :ten_item_attributes do |ten_item_f|
+ %strong Ten-Item Personality Inventory
+ %p Here are a number of personality traits that may or may not apply to you. Please select a number for each statement, indicating the extent to which you agree or disagree with that statement.
+ %p You should rate the extent to which the pair of traits applies to you even if one characteristic applies more strongly than the other.
+ = image_tag(:"tipi-scale.png", :alt => "From Disagree strongly (1) to Agree strongly (7)" )
+ %p.italic In general, I see <b>MYSELF</b> as:
+ = ten_item_f.input :visited, :as => :hidden, :value => true
+ = render 'ten_item_questions', :ten_item_f => ten_item_f
