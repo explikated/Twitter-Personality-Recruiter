@@ -6,7 +6,7 @@ def message(user)
 
 	#Random number generator
 	if n == 0
-		"@"+"#{user} Researchers at Olin College are studying personality on Twitter and we'd like your help. To learn more visit " + study_url(user)
+		"@"+"#{user} Researchers at Olin College are studying personality on Twitter and we'd like your help. Visit " + study_url(user)
 	elsif n == 1
 		"@"+"#{user}, We'd like your help in the first study about Twitter and Personality. Learn more and participate at " + study_url(user)
 	elsif n == 2
@@ -16,5 +16,5 @@ def message(user)
 end
 
 def study_url(user)
-	"http://olinpsychology.herokuapp.com/new_participant/"+"#{user}"
+	"http://olinpsychology.com/new_participant/"+"#{user}"
 end

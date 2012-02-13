@@ -1,0 +1,49 @@
+= form.fields_for :ten_item_attributes do |ten_item_f|
+  %strong Ten-Item Personality Inventory
+  %p Here are a number of personality traits that may or may not apply to you. Please select a number for each statement, indicating the extent to which you agree or disagree with that statement.
+  %p You should rate the extent to which the pair of traits applies to you even if one characteristic applies more strongly than the other.
+  = image_tag(:"tipi-scale.png", :alt => "From Disagree strongly (1) to Agree strongly (7)" )
+  %p.italic In general, I see myself as:
+  = ten_item_f.input :visited, :as => :hidden, :value => true
+  = render 'ten_item_questions', :ten_item_f => ten_item_f
+
+%p In this study we are interested in whether people who do not know you but who read your tweets can assess your personality as accurately as people who know you well in person. Please provide the email addresses of up to three people who know you well (ideally close friends or family) that might be willing to participate in a less-than-10 minute survey about your personality.
+
+= form.fields_for :demographic_attributes do |demographic_f|
+  %p <b>Close Aquaintance 1</b>
+  %div.inform
+    %div.inf
+      = label_tag "informant_1_email", "Email address:", :class => "email"
+      = text_field_tag "informant_1_email"
+    %div.inf
+      = label_tag "informant_1_relationship", "How do you know them?"
+      = select_tag "informant_1_relationship", options_for_select([["Close friend"], ["Extended family"], ["Immediate family"], ["Significant other"]])
+    %div.inf
+      = label_tag "informant_1_length", "How many years have you known this person?"
+      = text_field_tag "informant_1_length"
+  %p <b>Close Aquaintance 2</b>
+  %div.inform
+    %div.inf
+      = label_tag "informant_2_email", "Email address:", :class => "email"
+      = text_field_tag "informant_2_email"
+    %div.inf
+      = label_tag "informant_2_relationship", "How do you know them?"
+      = select_tag "informant_2_relationship", options_for_select([["Close friend"], ["Extended family"], ["Immediate family"], ["Significant other"]])
+    %div.inf
+      = label_tag "informant_2_length", "How many years have you known this person?"
+      = text_field_tag "informant_2_length"
+  %p <b>Close Aquaintance 3</b>
+  %div.inform
+    %div.inf  
+      = label_tag "informant_3_email", "Email address:", :class => "email"
+      = text_field_tag "informant_3_email"
+    %div.inf  
+      = label_tag "informant_3_relationship", "How do you know them?"
+      = select_tag "informant_3_relationship", options_for_select([["Close friend"], ["Extended family"], ["Immediate family"], ["Significant other"]])
+    %div.inf
+      = label_tag "informant_3_length", "How many years have you known this person?"
+      = text_field_tag "informant_3_length"
+%p When contacting these identified close friends or family members, we need to let them know where we got their email addresses. Please provide your name. It will not be connected to your data in any way.
+= form.input :name, :label => "Your name:", :required => false
+%p If you would like to be cc'd on the email sent to the acquaintances you've identified, please provide your email address. Email address will also be used to contact the winners of the Amazon gift card drawing at the end of the study. Your email will not be connected to your data in any way.
+= form.input :email, :label => "Your email address:", :required => false

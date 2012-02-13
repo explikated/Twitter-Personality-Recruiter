@@ -30,7 +30,7 @@ sends.each do |id|
 	puts message(user) if $ENV == 'test'
 	status_dict[id] = "messaged-#{Time.now.to_s.split.join("/")}"
 	#TODO log user messaged
-	sleep (5 + rand(10))*60 if $ENV == 'production' #wait 5-15 minutes before sending next one
+	sleep (1 + rand(10))*30 if $ENV == 'production' #wait 1-10 minutes before sending next one
 end
 
 #write new status dict
