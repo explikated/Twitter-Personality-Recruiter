@@ -9,6 +9,7 @@ TwitterPersonalityRecruiter::Application.routes.draw do
   end
 
   get "thank_you/index"
+  get "thank_you/more_info"
   get "thank_you/anyways"
 
 	root :to => "thank_you#anyways"

@@ -4,4 +4,7 @@ class ThankYouController < ApplicationController
 
   def anyways
   end
+
+  def more_info
+  end
 end
