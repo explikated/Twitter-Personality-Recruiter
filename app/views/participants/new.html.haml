@@ -6,6 +6,6 @@
 %p Read more about the study #{ link_to 'here', 'http://www.olinpsychology.com/thank_you/more_info', :target => "_blank"}. 
 %p If you are interested in participating, please click “Next” to view the official consent form, where you will indicate your willingness to participate and then begin the study.
 
-= simple_form_for Participant.new(:handle => @handle) do |f|
- = f.hidden_field :handle
+= simple_form_for Participant.new do |f|
+ = f.input :handle
  = f.submit "Next"

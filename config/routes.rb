@@ -1,5 +1,4 @@
 TwitterPersonalityRecruiter::Application.routes.draw do
-  match '/new_participant/:handle' => "participants#new"
   resources :participants, :only => [:new, :create, :edit, :update] do
     resources :informants, :only => [:show, :edit, :update]
   end
