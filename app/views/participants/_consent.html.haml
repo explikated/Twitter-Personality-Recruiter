@@ -11,6 +11,8 @@
 
 %consent Independent Contact: If you are not satisfied with how this study is being conducted, or if you have questions about your rights as a research subject please contact the Brandeis Institutional Review Board at irb@brandeis.edu or 781 736 8133.  You may also write to the Olin College OCPHS, c/o Claire O’Sullivan, Olin College, Needham, MA 02492 or at human.subjects@olin.edu.  This study has been approved by the Franklin W. Olin College Committee for the Protection of Human Subjects and the Brandeis University Committee for Protection of Human Subjects.<br/>
 
+#= simple_form_for Participant.new do |f|
+# = f.input :handle
 = form.fields_for :consent_attributes do |consent_f|
  = consent_f.input :consent, :label => "I give consent to be surveyed in this study:", :as => :radio
  = consent_f.input :over_18, :label => "I certify that I am 18 years of age or older:", :as => :radio
